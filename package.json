@@ -4,6 +4,7 @@
   "description": "Keep track of articles read in pocket via ifttt integration",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "mocha --compilers js:babel-register"
   },
   "author": "@frodebjerke",
