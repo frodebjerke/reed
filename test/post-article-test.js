@@ -1,9 +1,19 @@
 import request from "supertest";
 import moment from 'moment';
 import app from "../lib/app";
-
+import { MongoClient } from 'mongodb';
 
 describe('post article', () => {
+
+    let db;
+
+    before((done) => {
+        MongoClient.connect('mongodb://localhost:27017/reed-mocha-tests', function (err, database) {
+            if (err) return done(err);
+            db = database;
+            done();
+        });
+    })
 
     const article = {
         title: "On lava lamps",
@@ -14,12 +24,12 @@ describe('post article', () => {
     };
 
     it('article with completedAt and id returned', (done) => {
-        request(app)
+        request(app(db))
             .post('/v1/articles')
             .set('Content-Type', 'application/json')
             .send(article)
             .expect('Content-Type', /application\/json/)
-            .expect(/"id":/)
+            .expect(/"_id":/)
             .expect(/"completedAt":/)
             .expect(200, done);
     })
