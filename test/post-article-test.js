@@ -1,5 +1,4 @@
 import request from "supertest";
-import moment from 'moment';
 import app from "../lib/app";
 import { MongoClient } from 'mongodb';
 
@@ -17,10 +16,10 @@ describe('post article', () => {
 
     const article = {
         title: "On lava lamps",
-        exerpt: "What are lava lamps really good for?",
+        excerpt: "What are lava lamps really good for?",
         imageUrl: "",
         url: "life.frode.space",
-        addedAt: moment('1994-01-01')
+        addedAt: 'August 23, 2010 at 11:01PM'
     };
 
     it('article with completedAt and id returned', (done) => {
