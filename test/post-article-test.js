@@ -34,4 +34,12 @@ describe('post article', () => {
             .expect(200, done);
     })
 
+    after((done) => {
+        db.dropDatabase((err) => {
+            db.close();
+            if (err) done(err);
+            done();
+        });
+    })
+
 })
