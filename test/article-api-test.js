@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../lib/app";
 import { MongoClient } from 'mongodb';
 
-describe('post article', () => {
+describe('articles api', () => {
 
     let db;
 
@@ -22,7 +22,7 @@ describe('post article', () => {
         addedAt: 'August 23, 2010 at 11:01PM'
     };
 
-    it('article with completedAt and id returned', (done) => {
+    it('post article', (done) => {
         request(app(db))
             .post('/v1/articles')
             .set('Content-Type', 'application/json')
@@ -30,6 +30,12 @@ describe('post article', () => {
             .expect('Content-Type', /application\/json/)
             .expect(/"_id":/)
             .expect(/"completedAt":/)
+            .expect(200, done);
+    })
+
+    it('fetch articles', (done) => {
+        request(app(db))
+            .get('/v1/articles')
             .expect(200, done);
     })
 
