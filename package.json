@@ -1,0 +1,22 @@
+{
+  "name": "reed",
+  "version": "1.0.0",
+  "description": "Keep track of articles read in pocket via ifttt integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@frodebjerke",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.4.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "winston": "^2.1.1"
+  }
+}
