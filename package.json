@@ -4,7 +4,7 @@
   "description": "Keep track of articles read in pocket via ifttt integration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register"
   },
   "author": "@frodebjerke",
   "license": "ISC",
@@ -18,5 +18,9 @@
     "express": "^4.13.3",
     "morgan": "^1.6.1",
     "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.3.13",
+    "supertest": "^1.1.0"
   }
 }
